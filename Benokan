@@ -1,0 +1,81 @@
+import java.util.*;
+import java.security.*;
+
+public class Card {
+	Scanner input = new Scanner(System.in);
+	SecureRandom rand = new SecureRandom();
+	
+	//Variables
+	private int[][] frontOfTheCard = new int[4][4];  			// this variable will contain the numbers at the front of the cards.
+	private String[][] backOfTheCard = new String[4][4]; 		// this variable will contain the texts at the back of the cards.
+	private boolean visibility = false;  						// visibility = false (card is closed) , visibility = true (card is flipped)
+	
+	public String[] listOfNames = {"ali","ali","veli","veli","benokan","benokan","tefo","tefo","mert","mert","can","can","xx","xx","yy","yy"};
+	
+	
+	
+	public void setFrontSide()  // This will set the showing side game Board , Also Fills frontOfTheCard double-dim. array	
+	{					
+		int i=1;
+		
+		for(int row=0;row<4;row++)
+		{
+			for(int column=0;column<4;column++)
+			{
+				frontOfTheCard[row][column]=i;
+				System.out.format("%10s", frontOfTheCard[row][column]);
+				++i;
+			}
+			System.out.println();
+		}
+	}
+	
+	public int getFrontSide(int row,int column){ // To access each member of the front side
+		return frontOfTheCard[row][column];
+	}
+	
+	
+	
+	
+	
+	
+	
+	public void setBackSide()
+	{	
+		Collections.shuffle(Arrays.asList(listOfNames));
+		int i=0;
+		for(int row=0;row<4;row++)
+		{
+			for(int column=0;column<4;column++)
+			{
+				backOfTheCard[row][column] = listOfNames[i];
+				i++;
+			}
+		}
+		
+	//	Collections.shuffle(Arrays.asList(backOfTheCard));
+		
+		for(int row=0;row<4;row++)
+		{
+			for(int column=0;column<4;column++)
+			{
+				System.out.format("%10s", backOfTheCard[row][column]);
+			}
+			System.out.println();
+		}
+		
+		
+		
+	}
+	
+	
+	
+	Card(){
+		
+	}
+
+
+	
+	
+	
+}
